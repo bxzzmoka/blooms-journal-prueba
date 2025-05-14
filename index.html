@@ -96,18 +96,25 @@
     }
     @media screen and (max-width: 600px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.2rem;
       }
       .section {
         padding: 1.5rem 1rem;
       }
       .cta-button {
-        width: 80%;
+        width: 90%;
         font-size: 1rem;
       }
       .gallery img {
         width: 80px;
         height: 80px;
+      }
+      footer {
+        font-size: 0.9rem;
+        padding-bottom: 3rem;
       }
     }
   </style>
@@ -172,7 +179,6 @@
         }
       });
     }, { threshold: 0.1 });
-
     revealElements.forEach(el => observer.observe(el));
   </script>
 </body>
