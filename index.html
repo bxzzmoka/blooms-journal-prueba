@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blooms Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f3fdf4;
+      color: #2e7d32;
+    }
+    header {
+      background-color: #81c784;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 4px solid #66bb6a;
+    }
+    .logo-placeholder {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1rem;
+      background-color: white;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+    .section {
+      padding: 2rem 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .section:hover {
+      transform: perspective(1000px) translateZ(10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #2e7d32;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #a5d6a7;
+    }
+    footer {
+      background-color: #388e3c;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem 4rem;
+    }
+    footer p {
+      margin: 0.5rem 0;
+    }
+    .social span {
+      font-weight: bold;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: none;
+    }
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .section {
+        padding: 1.5rem 1rem;
+      }
+      .cta-button {
+        width: 80%;
+        font-size: 1rem;
+      }
+      .gallery img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2e74ba1875.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  <header>
+    <div class="logo-placeholder"></div>
+    <h1 data-reveal>Blooms Journal</h1>
+    <p data-reveal>Tu diario emocional y ecológico 🌱</p>
+  </header>
+
+  <section class="section" data-reveal>
+    <h2>¿Qué es Blooms Journal?</h2>
+    <p>Es un diario terapéutico con hojas que contienen semillas. Una vez escrito, puede ser sembrado para convertirse en plantas.</p>
+  </section>
+
+  <section class="section" data-reveal>
+    <h2>Detalles del producto</h2>
+    <p>Cubierta ecológica, encuadernación artesanal, papel reciclado con semillas. Cada página puede convertirse en vida.</p>
+  </section>
+
+  <section class="section" data-reveal>
+    <h2>Galería</h2>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Ejemplo 1">
+      <img src="img2.jpg" alt="Ejemplo 2">
+      <img src="img3.jpg" alt="Ejemplo 3">
+    </div>
+  </section>
+
+  <section class="section" data-reveal>
+    <h2>Nuestra filosofía</h2>
+    <p>Creemos en la sanación a través de la escritura y la reconexión con la naturaleza. Escribir para sanar, sembrar para transformar.</p>
+  </section>
+
+  <section class="section" data-reveal>
+    <h2>Conecta con la naturaleza</h2>
+    <p>Transforma tus pensamientos en vida. Blooms Journal no solo es un diario, es una experiencia ecológica y emocional.</p>
+    <a class="cta-button" href="#">Adquiere el tuyo ahora</a>
+  </section>
+
+  <footer data-reveal>
+    <p>© 2025 Blooms Journal · Diario emocional & ecológico 🌿</p>
+    <p>Síguenos en <span>@blooms.journal</span> — Instagram · TikTok · Facebook</p>
+    <div class="gallery">
+      <img src="img1.jpg" alt="Naturaleza 1" />
+      <img src="img2.jpg" alt="Naturaleza 2" />
+      <img src="img3.jpg" alt="Naturaleza 3" />
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
